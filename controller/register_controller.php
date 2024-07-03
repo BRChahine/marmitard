@@ -29,7 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             //enregistrer les informations dans la base de données
             $dbConnexion = dbConnexion();
             //préparer la requête
-            $request = $dbConnexion->prepare("INSERT INTO users (nom, prenom, age, mdp, email, sexe, profile_image) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $request = $dbConnexion->prepare("INSERT INTO users (nom, prenom, age, mdp, email, sexe, profil_image) VALUES (?, ?, ?, ?, ?, ?, ?)");
             // execution de la requête
             $request->execute(array($nom, $prenom, $age, $mdp, $email, $sexe, $_FILES['photo']['name']));
 
