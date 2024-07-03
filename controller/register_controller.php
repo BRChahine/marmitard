@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $prenom = $_POST['prenom'];
         $age = $_POST['age'];
         $email = $_POST['email'];
-        $mdp = $_POST['mdp'];
+        $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
         $sexe = $_POST['sexe'];
 
         //récupération et upload de l'image sur le serveur
