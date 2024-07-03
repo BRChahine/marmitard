@@ -28,6 +28,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             move_uploaded_file($_FILES['photo']['tmp_name'], $targetfile);
             //enregistrer les informations dans la base de données
             $dbConnexion = dbConnexion();
+            //préparer la requête
+            $request = $dbConnexion->prepare("INSERT INTO users (nom, prenom, age, mdp, email, sexe, profile_image) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            // execution de la requête
+            $request->execute(array($nom, $prenom, $age, $mdp, $email, $sexe, $_FILES['photo']['name']));
+
         }catch(Exception $e){
             echo $e->getMessage();
         }
