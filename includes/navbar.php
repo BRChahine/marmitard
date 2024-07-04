@@ -1,4 +1,6 @@
-<?php define("BASE_URL","http://localhost/marmitard/");?>
+<?php 
+session_start();
+define("BASE_URL","http://localhost/marmitard/");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,10 +37,12 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
+          <?php if (isset($_SESSION['id_user'])){?>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <a class="nav-link " href ="">Ajouter une recette</a>
         </li>
+        <?php } ?>
       </ul>
       <form class="d-flex" role="search">
         <a href="<?= BASE_URL ?>views/register.php" class="btn">Sign up</a>

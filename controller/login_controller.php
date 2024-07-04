@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     }else{// cas ou le tableau $userInfos n'est pas vide
         // verifier la comformite du mot de passe 
         if(password_verify($mdp, $userInfos['mdp'])){
-            $_SESSION['id_user'] = 
+            $_SESSION['id_user'] = $userInfos['id'];
 
         }else{ // cas ou les mots de passe ne correspondent pas 
             echo "mot de passe incorrect!";
