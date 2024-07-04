@@ -40,14 +40,18 @@ define("BASE_URL","http://localhost/marmitard/");?>
           <?php if (isset($_SESSION['id_user'])){?>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href ="">Ajouter une recette</a>
+          <a class="nav-link " href ="<?= BASE_URL ?>views/ajout_recette.php">Ajouter une recette</a>
         </li>
         <?php } ?>
       </ul>
       <form class="d-flex" role="search">
-        <a href="<?= BASE_URL ?>views/register.php" class="btn">Sign up</a>
-        <a href="<?= BASE_URL ?>views/login.php" class="btn">Sign in</a>
-    </form>
+        <?php if (!isset($_SESSION['id_user'])){?>
+          <a href="<?= BASE_URL ?>views/register.php" class="btn">Sign up</a>
+          <a href="<?= BASE_URL ?>views/login.php" class="btn">Sign in</a>
+        <?php } else{ ?>
+          <a href ="#" class="btn">Logout</a>
+        <?php } ?>   
+      </form>
     </div>
   </div>
 </nav>
