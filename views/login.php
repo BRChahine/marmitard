@@ -1,7 +1,7 @@
 <?php require_once "../includes/navbar.php";?>
 
 <div class="w-25 mx-auto">
-    <form action="../controller/register-controller.php" method="post">
+    <form action="../controller/login_controller.php" method="post">
         <!-- le mail -->
         <div class="mb-2 text-center">
             <label class="form-label ">Email</label>
