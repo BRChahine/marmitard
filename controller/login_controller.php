@@ -26,14 +26,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         // verifier la comformite du mot de passe 
         if(password_verify($mdp, $userInfos['mdp'])){
             $_SESSION['id_user'] = $userInfos['id'];
+            $_SESSION['statuts'] = $userInfos['statuts'];
+            header("Location: http://localhost/marmitard");
 
         }else{ // cas ou les mots de passe ne correspondent pas 
             echo "mot de passe incorrect!";
         }    
     }
-}else{
+
+
+}elseif(isset($_GET['action'])){
+    session_destroy();
+    // rediriger vers page d'accueil
+    header("Location: http://localhost/marmitard");
+}
+
+else{
     // rediriger vers login.php
     header("Location: ../views/login.php");
-
-
 }
